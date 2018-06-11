@@ -5,18 +5,18 @@
   
 
   
-  <title>myFirstBlog | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="初识打包工具gulpnpm首先完成第一步安装npm1234567891011npm init/*首先写一个项目的说明书*/package name:(music)/*项目的名称不写就是默认文件夹的名称*/version:(1.0.0)/*版本号*/description:this is a music/*描述*/entry point:(index.js)/*入口文件，包管理工具是谁的管理工具？是">
 <meta property="og:type" content="article">
-<meta property="og:title" content="myFirstBlog">
+<meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://yoursite.com/2018/06/11/初识gulp/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="初识打包工具gulpnpm首先完成第一步安装npm1234567891011npm init/*首先写一个项目的说明书*/package name:(music)/*项目的名称不写就是默认文件夹的名称*/version:(1.0.0)/*版本号*/description:this is a music/*描述*/entry point:(index.js)/*入口文件，包管理工具是谁的管理工具？是">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-10T23:20:06.869Z">
+<meta property="og:updated_time" content="2018-06-11T07:58:53.903Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="myFirstBlog">
+<meta name="twitter:title" content="Hexo">
 <meta name="twitter:description" content="初识打包工具gulpnpm首先完成第一步安装npm1234567891011npm init/*首先写一个项目的说明书*/package name:(music)/*项目的名称不写就是默认文件夹的名称*/version:(1.0.0)/*版本号*/description:this is a music/*描述*/entry point:(index.js)/*入口文件，包管理工具是谁的管理工具？是">
   
     <link rel="alternate" href="/blog/atom.xml" title="Hexo" type="application/atom+xml">
@@ -67,39 +67,31 @@
         <section id="main"><article id="post-初识gulp" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/blog/2018/06/11/初识gulp/" class="article-date">
-  <time datetime="2018-06-10T23:12:19.030Z" itemprop="datePublished">2018-06-11</time>
+  <time datetime="2018-06-11T07:38:56.044Z" itemprop="datePublished">2018-06-11</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      myFirstBlog
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="初识打包工具gulp"><a href="#初识打包工具gulp" class="headerlink" title="初识打包工具gulp"></a>初识打包工具gulp</h1><h2 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h2><h3 id="首先完成第一步安装npm"><a href="#首先完成第一步安装npm" class="headerlink" title="首先完成第一步安装npm"></a>首先完成第一步安装npm</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">npm init/*首先写一个项目的说明书*/</span><br><span class="line">package name:(music)/*项目的名称不写就是默认文件夹的名称*/</span><br><span class="line">version:(1.0.0)/*版本号*/</span><br><span class="line">description:this is a music/*描述*/</span><br><span class="line">entry point:(index.js)/*入口文件，包管理工具是谁的管理工具？是nodejs管理工具，nodejs里面没有html和css，js才有模块化一说，所以入口文件都是js文件，如果不写的话就是index.js*/</span><br><span class="line">test command:/*test命令*/</span><br><span class="line">git repository:/*把自己的代码上传到github仓库里，这是不是个来源的项目，让别人定位这个项目在哪儿，在这里不用写*/</span><br><span class="line">keyword:music html5/*关键字，方便检索*/</span><br><span class="line">autor:chentiantian/*作者*/</span><br><span class="line">license:(ISC) MIT/*证书，保证项目的权益。ISC什么权益都没有，别人可以随意获取项目，可以随意更改项目。而MIT别人可以随意的享用，但是不能随意的更改代码*/</span><br><span class="line">Is this ok?(yes)/*回车确认就可以*/</span><br></pre></td></tr></table></figure>
-<p>此时文件夹里就多了一个文件==package.json==，文件里的内容恰好就是刚刚配置的内容。进行下一步操作</p>
+<p>此时文件夹里就多了一个文件<code>package.json</code>，文件里的内容恰好就是刚刚配置的内容。进行下一步操作</p>
 <p>因为npm官方服务器在国外，下载资源会很慢（而网络和地域是有关联的）此时，淘宝镜像就产生了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm--registry＝https:registry.npm.taobao.org</span><br></pre></td></tr></table></figure></p>
-<p>上面是安装 cnpm 的一种方式，想了解更多去cnpm官网查看。</p>
+<p>上面是安装 cnpm 的一种方式，想了解更多去cnpm官网查看</p>
 <h3 id="gulp"><a href="#gulp" class="headerlink" title="gulp"></a>gulp</h3><p>首先安装一个全局的gulp，这个时候开始可以用cnpm了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install gulp@3.9.1 -g /*下载全局gulp@3.9.1版本*/</span><br></pre></td></tr></table></figure></p>
-<p>此时可以用 ==gulp -v== 查看版本号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gulp -v</span><br><span class="line">CLI version 3.9.1</span><br></pre></td></tr></table></figure></p>
+<p>此时可以用 <code>gulp -v</code> 查看版本号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gulp -v</span><br><span class="line">CLI version 3.9.1</span><br></pre></td></tr></table></figure></p>
 <p>之后在我们根目录下安装一个gulp<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install gulp --save-dev</span><br></pre></td></tr></table></figure></p>
-<p>安装好之后打开==package.json==文件，多了一行属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;devDependencies&quot;: &#123;</span><br><span class="line">    &quot;gulp&quot;: &quot;^3.9.1&quot;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<p>安装好之后打开<strong>package.json</strong>文件，多了一行属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;devDependencies&quot;: &#123;</span><br><span class="line">    &quot;gulp&quot;: &quot;^3.9.1&quot;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
 <p>这是一个开发使用依赖</p>
-<h5 id="今天先写到这儿，回来再补充"><a href="#今天先写到这儿，回来再补充" class="headerlink" title="今天先写到这儿，回来再补充"></a>今天先写到这儿，回来再补充</h5>
+<h3 id="开始配置文件"><a href="#开始配置文件" class="headerlink" title="开始配置文件"></a>开始配置文件</h3><p>在根目录下创建一个文件，文件名 <code>gulpfile.js</code>以下是配置信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line">var gulp = require(&apos;gulp&apos;);</span><br><span class="line">var imagemin = require(&apos;gulp-imagemin&apos;);// 压缩图片</span><br><span class="line">var newer = require(&apos;gulp-newer&apos;);// 查看是否是最新的,</span><br><span class="line">var htmlClean = require(&apos;gulp-htmlclean&apos;);// 压缩.html文件</span><br><span class="line">var uglify = require(&apos;gulp-uglify&apos;);// 压缩js</span><br><span class="line">var stripDebug = require(&apos;gulp-strip-debug&apos;);// 去除debug</span><br><span class="line">var concat = require(&apos;gulp-concat&apos;);// 合并.js文件</span><br><span class="line">var less = require(&apos;gulp-less&apos;);// 把less文件转成css文件</span><br><span class="line">var postcss = require(&apos;gulp-postcss&apos;);// 给css添加前缀</span><br><span class="line">var autoprefixer = require(&apos;autoprefixer&apos;);// 压缩css代码（可能跟前缀有关系）</span><br><span class="line">var cssnano = require(&apos;cssnano&apos;);// 压缩css代码</span><br><span class="line">var connect = require(&apos;gulp-connect&apos;);// 模拟一个服务器</span><br><span class="line"></span><br><span class="line">// 判断是开发环境还是生产环境</span><br><span class="line">var devMode = process.env.NODE_ENV == &apos;development&apos;;</span><br><span class="line">console.log(devMode);</span><br><span class="line"></span><br><span class="line">var folder = &#123;</span><br><span class="line">    src: &apos;./src/&apos;,/*开发目录文件夹*/</span><br><span class="line">    build: &apos;./build/&apos;/*压缩打包后目录文件夹*/</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">gulp.task(&apos;images&apos;, function () &#123;</span><br><span class="line">    gulp.src(folder.src + &apos;images/*&apos;)</span><br><span class="line">        .pipe(connect.reload())</span><br><span class="line">        .pipe(newer(folder.src + &apos;images&apos;))</span><br><span class="line">        // if (!devMode) &#123;</span><br><span class="line">        .pipe(imagemin())/**压缩图片 */</span><br><span class="line">        // &#125;</span><br><span class="line">        .pipe(gulp.dest(folder.build + &apos;images&apos;));</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">gulp.task(&apos;html&apos;, function () &#123;</span><br><span class="line">    var page = gulp.src(folder.src + &apos;html/*&apos;)/*读文件*/</span><br><span class="line">        .pipe(connect.reload())</span><br><span class="line">        if (!devMode) &#123;</span><br><span class="line">            page.pipe(htmlClean())/*压缩.html文件*/</span><br><span class="line">        &#125;</span><br><span class="line">        page.pipe(gulp.dest(folder.build + &apos;html&apos;));/**管道流到 打包后的文件夹 */</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">gulp.task(&apos;js&apos;, function () &#123;</span><br><span class="line">    var page = gulp.src(folder.src + &apos;js/*&apos;)</span><br><span class="line">        .pipe(connect.reload())</span><br><span class="line">    //.pipe(concat(&apos;main.js&apos;))/**合并.js文件 */</span><br><span class="line">        if (!devMode) &#123;</span><br><span class="line">            page.pipe(stripDebug())/**去除debug */</span><br><span class="line">                .pipe(uglify())</span><br><span class="line">        &#125;</span><br><span class="line">        page.pipe(gulp.dest(folder.build + &apos;js&apos;));</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">gulp.task(&apos;css&apos;, function () &#123;</span><br><span class="line">    var options = [autoprefixer(), cssnano()];</span><br><span class="line">    var page = gulp.src(folder.src + &apos;css/*&apos;)</span><br><span class="line">        .pipe(connect.reload())</span><br><span class="line">        .pipe(less())/**把less转换成css */</span><br><span class="line">        if (!devMode) &#123;</span><br><span class="line">            page.pipe(postcss(options))/**添加前缀，并进行代码压缩 */</span><br><span class="line">        &#125;</span><br><span class="line">        page.pipe(gulp.dest(folder.build + &apos;css&apos;));</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">gulp.task(&apos;watch&apos;, function () &#123;</span><br><span class="line">    gulp.watch(folder.src + &apos;html/*&apos;, [&apos;html&apos;]);</span><br><span class="line">    gulp.watch(folder.src + &apos;js/*&apos;, [&apos;js&apos;]);</span><br><span class="line">    gulp.watch(folder.src + &apos;css/*&apos;, [&apos;css&apos;]);</span><br><span class="line">    gulp.watch(folder.src + &apos;images/*&apos;, [&apos;images&apos;]);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">gulp.task(&apos;server&apos;, function () &#123;</span><br><span class="line">    connect.server(&#123;</span><br><span class="line">        port: &apos;8080&apos;, /*可以改变端口号*/</span><br><span class="line">        livereload: true /**自动刷新 */</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// default 是&quot;默认&quot;的意思</span><br><span class="line">// 有了default, 就直接可以 gulp</span><br><span class="line">gulp.task(&apos;default&apos;, [&apos;html&apos;, &apos;images&apos;, &apos;js&apos;, &apos;css&apos;, &apos;watch&apos;, &apos;server&apos;], function () &#123;</span><br><span class="line">    // 这是一个回调函数</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>以上配置在开发环境下代码是经过压缩的，如果出现错误，报错信息会始终显示在第一行，因此要在控制台里设置为开发环境，这样代码就不会进行压缩，当需要压缩的时候在把<code>if</code>条件语句删除<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export NODE_ENV = development /*在控制台里输入  设置为开发环境*/</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/11/初识gulp/" data-id="cji9gf9fk0000ws0sogp0gpo0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/11/初识gulp/" data-id="cji9y6sjp00004s0s6ivvwxw5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -138,7 +130,7 @@
       <ul>
         
           <li>
-            <a href="/blog/2018/06/11/初识gulp/">myFirstBlog</a>
+            <a href="/blog/2018/06/11/初识gulp/">(no title)</a>
           </li>
         
       </ul>
