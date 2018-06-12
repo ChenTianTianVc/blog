@@ -84,9 +84,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h3><p>AMD 即Asynchronous Module Definition，中文名是异步模块定义的意思。它是一个在浏览器端模块化开发的规范</p>
+        <h3 id="模块化简介"><a href="#模块化简介" class="headerlink" title="模块化简介"></a>模块化简介</h3><p>在互联网初期，是后台进行数据验证的，这样很耗费服务器的性能。</p>
+<p>后来 javascript 作为嵌入式的脚本语言只作为验证处理，没必要设计模块化，以免影响 javascript 整体性能。谁也没想到前端发展的很快，随着 web2.0 时代的到来，Ajax技术得到广泛应用，jQuery 等前端库层出不穷，前端代码日益膨胀。javascript极其简单的代码组织规范不足以驾驭如此庞大规模的代码，于是前端圈开始给javascript制定规范。</p>
+<p>可是它没有模块化咋办？那就造轮子，造啊！</p>
+<p>这里的主要分界点是 nodejs. nodejs作为一门后台(服务器端)语言，它是基于 commonjs 语法规范的产物。竟然后台也是javascript写的，那为啥不把commonjs规范移植到前端呢？</p>
+<p>后来发现了一个问题，commonjs 是同步加载的，它更适合于服务端。所以前端迫切的需要规范，来隔离、组织复杂的JavaScript代码，<font color="red">这就是模块化</font>。</p>
+<p><strong>写作过程中突然有个灵感：</strong><font color="red">每个互联网公司的用人需求是巨大的，所以我现在只需要把技术淬炼好。</font></p>
+<p>同步去引入，同步意味着阻塞，加载这个包的时候，就不能做其他的事情，代码就不能继续往下执行<br>在后台（服务器端）没有问题的，把东西放在硬盘上，requires的时候，直接把硬盘里的东西引入到内存中去，硬盘读取的速度很快<br>但是如果移植到前端，前端跑javascript的时候，requires一个模块的时候，去服务器requires,一去服务器requires模块，它是同步的，服务器调用一个请求，那是很慢的一件事情，可能1秒2秒，<br>在这1秒2秒里页面不加载了，这样的用户体验是不好的<br>所以不能直接移植过去，那怎么办？<br>再造轮子<br>于是出现了很多的前端规范，最耳熟能详的就是AMD<br><strong>话不多说，先看commonJS</strong></p>
+<h3 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h3><p>前端没有模块化编程只是页面JavaScript逻辑复杂，但也可以工作下去，在服务器端却一定要有模块，所以虽然JavaScript在web端发展这么多年，第一个流行的模块化规范却由服务器端的JavaScript应用带来，CommonJS规范是由NodeJS发扬光大，这标志着JavaScript模块化编程正式登上舞台。</p>
+<p>1、定义模块<br>根据CommonJS规范，一个单独的文件就是一个模块。每一个模块都是一个单独的作用域，也就是说，在该模块内部定义的变量，无法被其他模块读取，除非定义为global对象的属性</p>
+<p>2、模块输出<br>模块只有一个出口，module.exports对象，我们需要把模块希望输出的内容放入该对象</p>
+<p>3、加载模块<br>加载模块使用require方法，该方法读取一个文件并执行，返回文件内部的module.exports对象</p>
+<h6 id="举个栗子"><a href="#举个栗子" class="headerlink" title="举个栗子"></a>举个栗子</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">// 模块定义 myModel.js</span><br><span class="line"></span><br><span class="line">var name = &apos;ChenTianTian&apos;;</span><br><span class="line"></span><br><span class="line">function printName()&#123;</span><br><span class="line">    console.log(name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">    printName: printName</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 加载模块 require.js</span><br><span class="line"></span><br><span class="line">var nameModule = require(&apos;./myModel.js&apos;);</span><br><span class="line"></span><br><span class="line">nameModule.printName();</span><br></pre></td></tr></table></figure>
+<p>CommonJS的核心思想就是通过 require 方法来同步加载所要依赖的其它模块，然后通过 exports 或者 module.exports 来导出需要暴露的接口</p>
+<h3 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h3><p>AMD 即Asynchronous Module Definition，中文名是异步模块定义的意思。它是一个在浏览器端模块化开发的规范</p>
 <p>由于不是javaScript原生支持，使用AMD规范进行页面开发需要用到对应的库函数，也就是大名鼎鼎的RequireJS，实际上AMD是RequireJS在推广过程中对模块定义的规范化的产出</p>
-<h4 id="在-html中引入requirejs"><a href="#在-html中引入requirejs" class="headerlink" title="在.html中引入requirejs"></a>在.html中引入requirejs</h4><h6 id="在-html中添加一个标签"><a href="#在-html中添加一个标签" class="headerlink" title="在.html中添加一个标签"></a>在.html中添加一个标签</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;./js/require.js&quot; data-main=&quot;./js/config.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="在-html-中引入requirejs"><a href="#在-html-中引入requirejs" class="headerlink" title="在 .html 中引入requirejs"></a>在 .html 中引入requirejs</h4><h6 id="在-html-中添加一个标签"><a href="#在-html-中添加一个标签" class="headerlink" title="在 .html 中添加一个标签"></a>在 .html 中添加一个标签</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;./js/require.js&quot; data-main=&quot;./js/config.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <p>通常使用requirejs的话，我们只需要导入require即可，不需要导入其它的js库，因为这个工作会交给requirejs来做。<br>属性<font color="red"><code>data-main</code></font>是告诉requirejs：no下载完成以后，马上去载入真正的入口文件。他一般来对requirejs进行配置，并且载入真正的程序模块。  </p>
 <h4 id="在config-js中配置requirejs"><a href="#在config-js中配置requirejs" class="headerlink" title="在config.js中配置requirejs"></a>在config.js中配置requirejs</h4><p><font color="red"><code>config.js</code></font>中通常用来做两件事：<br>&emsp;&emsp;1、配置requirejs，比如项目中用到哪些模块，文件路径是什么<br>&emsp;&emsp;2、载入程序主模块</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// myModule.js</span><br><span class="line">define([&apos;dependency&apos;], function () &#123;</span><br><span class="line">    var name = &apos;chentiantian&apos;;</span><br><span class="line">    function printName () &#123;</span><br><span class="line">        console.log(name);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    return &#123;</span><br><span class="line">        printName: printName</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// config.js</span><br><span class="line">requirejs.config(&#123;</span><br><span class="line">	baseUrl: &apos;./js/tools&apos;,</span><br><span class="line">	paths: &#123;</span><br><span class="line">		myModule: &apos;myModule&apos;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">require([&apos;myModule&apos;], function (myModule) &#123;</span><br><span class="line">    myMoudle.printName();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
@@ -122,7 +135,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/12/What is AMD & CMD/" data-id="cjib2hfsg0001w00slnf25559" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/12/What is AMD & CMD/" data-id="cjib52p0m0004gg0s0q56nkoa" class="article-share-link">Share</a>
       
       
     </footer>
@@ -169,7 +182,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/11/初识gulp/" data-id="cjib2hfsb0000w00sv1yece4k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/11/初识gulp/" data-id="cjib4w3or0000gg0srjl2ixzi" class="article-share-link">Share</a>
       
       
     </footer>
